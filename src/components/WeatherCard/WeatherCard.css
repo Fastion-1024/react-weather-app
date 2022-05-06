@@ -1,0 +1,25 @@
+.weather-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: darkcyan;
+    padding: 1em;
+}
+
+.weather-card-footer {
+    margin-top: 1em;
+    display: flex;
+    gap: 1em;
+    background-color: darkolivegreen;
+    padding: 0.5em;
+    text-align: center;
+}
+
+.weather-card h1,
+h2,
+h3,
+h4,
+h5 {
+    text-transform: capitalize;
+}

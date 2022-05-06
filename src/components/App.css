@@ -1,0 +1,16 @@
+.main {
+    height: 100vh;
+    width: 100vw;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 'search' 'forecast';
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar {
+    grid-area: search;
+}
+
+.weather-container {
+    grid-area: forecast;
+}
