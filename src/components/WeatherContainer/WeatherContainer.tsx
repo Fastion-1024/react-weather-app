@@ -1,18 +1,18 @@
 import React from 'react';
-import { Weather } from '../../lib/types';
+import { Forecast } from '../../lib/types';
 import ForecastContainer from '../ForecastContainer/ForecastContainer';
 import WeatherCard from '../WeatherCard/WeatherCard';
 import './WeatherContainer.css';
 
 interface IProps {
-    forecast: Weather[];
+    weeklyForecast: Forecast[];
 }
 
-const WeatherContainer: React.FC<IProps> = ({ forecast }) => {
+const WeatherContainer: React.FC<IProps> = ({ weeklyForecast }) => {
     return (
         <section className="weather-container">
-            <WeatherCard weather={forecast[0]} />
-            <ForecastContainer forecast={forecast.slice(1, 6)} />
+            <WeatherCard currentForecast={weeklyForecast[0]} />
+            <ForecastContainer weeklyForecast={weeklyForecast.slice(1, 6)} />
         </section>
     );
 };

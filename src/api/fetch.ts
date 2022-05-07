@@ -1,5 +1,4 @@
-import { City } from '../lib/types';
-import { Weather } from '../lib/types';
+import { City, Forecast } from '../lib/types';
 import { OneCallResponse, GeoReponse } from '.';
 import { GetUVExposure } from '../lib/helpers';
 
@@ -8,12 +7,12 @@ import { GetUVExposure } from '../lib/helpers';
  *
  * @param city The city object containing the latitude & longitude
  */
-export const fetchOneCall = async (city: City): Promise<Weather[]> => {
+export const fetchOneCall = async (city: City): Promise<Forecast[]> => {
     const request = `https://api.openweathermap.org/data/2.5/onecall?lat=${city.lat}&lon=${city.lon}&exclude=minutely,hourly&${process.env.REACT_APP_API_KEY_NAME}=${process.env.REACT_APP_API_KEY_VALUE}`;
     const response = await fetch(request);
     const data: OneCallResponse = await response.json();
 
-    const weather: Weather[] = data.daily.map((day, index) => {
+    const weeklyForecast: Forecast[] = data.daily.map((day, index) => {
         if (index === 0) {
             return {
                 city: city,
@@ -37,7 +36,7 @@ export const fetchOneCall = async (city: City): Promise<Weather[]> => {
                     wind_speed: data.current.wind_speed,
                     wind_deg: data.current.wind_deg,
                 },
-                forecast: {
+                weather: {
                     type: data.current.weather[0].main,
                     description: data.current.weather[0].description,
                     icon: `http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`,
@@ -66,7 +65,7 @@ export const fetchOneCall = async (city: City): Promise<Weather[]> => {
                 wind_speed: day.wind_speed,
                 wind_deg: day.wind_deg,
             },
-            forecast: {
+            weather: {
                 type: day.weather[0].main,
                 description: day.weather[0].description,
                 icon: `http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`,
@@ -74,7 +73,7 @@ export const fetchOneCall = async (city: City): Promise<Weather[]> => {
         };
     });
 
-    return weather;
+    return weeklyForecast;
 };
 
 /**

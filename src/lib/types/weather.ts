@@ -1,54 +1,16 @@
-import { UVExposure } from '../enums';
-import { City, Forecast, Temperature, Time, Wind } from '../types';
-
 export type Weather = {
     /**
-     * The City object containing geographical location and name.
+     * The group of weather parameters (Rain, Snow, etc)
      */
-    city: City;
+    type: string;
 
     /**
-     * The Time object containing the current, sunrise and sunset time, Unix, UTC
+     * The weather condition within the group
      */
-    time: Time;
+    description: string;
 
     /**
-     * The Temperature object containing the current, feels like, min and max temperatures in Kelvin
+     * The Icon URL
      */
-    temp: Temperature;
-
-    /**
-     * The cloudiness percentage
-     */
-    clouds: number;
-
-    /**
-     * The humidity percentage
-     */
-    humidity: number;
-
-    /**
-     * The chance of percipitation percentage
-     */
-    precipitation: number;
-
-    /**
-     * The actual UV Index value
-     */
-    uvi: number;
-
-    /**
-     * The exposure rating for UV (Low, Moderate, High, etc)
-     */
-    uv_exposure: UVExposure;
-
-    /**
-     * The Wind Object containing the wind speed (metre/sec) & wind direction (degrees)
-     */
-    wind: Wind;
-
-    /**
-     * The Forecast object containing the current forecasted weather
-     */
-    forecast: Forecast;
+    icon: string;
 };
