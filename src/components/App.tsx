@@ -4,14 +4,10 @@ import { useAppContext } from './AppProvider';
 import './App.css';
 
 function App() {
-    const { weeklyForecast, fetchWeather } = useAppContext();
-
     return (
         <main>
-            <SearchBar updateCity={fetchWeather} />
-            {weeklyForecast && (
-                <WeatherContainer weeklyForecast={weeklyForecast} />
-            )}
+            <SearchBar />
+            <WeatherContainer />
         </main>
     );
 }

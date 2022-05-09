@@ -11,7 +11,7 @@ const ForecastContainer: React.FC<IProps> = ({ weeklyForecast }) => {
     return (
         <div className="forecast-container">
             {weeklyForecast.map((day) => {
-                return <ForecastCard dailyForecast={day} />;
+                return <ForecastCard forecast={day} />;
             })}
         </div>
     );

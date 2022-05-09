@@ -3,15 +3,13 @@ import { MdOutlineMyLocation } from 'react-icons/md';
 import { fetchGeoLocation, fetchReverseGeoLocation } from '../../api/fetch';
 import { getLocation } from '../../lib/helpers';
 import { City } from '../../lib/types';
+import { useAppContext } from '../AppProvider';
 import './SearchBar.css';
 
-interface IProps {
-    updateCity: (city: City) => void;
-}
-
-const SearchBar: React.FC<IProps> = ({ updateCity }) => {
+const SearchBar = () => {
     const [input, setInput] = useState<string>('');
     const [searchResults, setSearchResults] = useState<City[] | null>(null);
+    const { fetchWeather } = useAppContext();
 
     const handleChange = (input: string) => {
         if (!input && searchResults) {
@@ -36,9 +34,8 @@ const SearchBar: React.FC<IProps> = ({ updateCity }) => {
 
     const onOptionClick = (city: City) => {
         // get data for city
-        setInput('');
-        setSearchResults(null);
-        updateCity(city);
+        clearInput();
+        fetchWeather(city);
     };
 
     const onLocationClick = async () => {
@@ -49,12 +46,16 @@ const SearchBar: React.FC<IProps> = ({ updateCity }) => {
                 pos.coords.longitude
             );
 
-            city && updateCity(city);
-            setInput('');
-            setSearchResults(null);
+            city && fetchWeather(city);
+            clearInput();
         } catch (err) {
             alert('Could not determine location');
         }
+    };
+
+    const clearInput = () => {
+        setInput('');
+        setSearchResults(null);
     };
 
     return (

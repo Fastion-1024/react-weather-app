@@ -5,15 +5,15 @@ import { Forecast } from '../../lib/types';
 import './ForecastCard.css';
 
 interface IProps {
-    dailyForecast: Forecast;
+    forecast: Forecast;
 }
 
-const ForecastCard: React.FC<IProps> = ({ dailyForecast }) => {
+const ForecastCard: React.FC<IProps> = ({ forecast }) => {
     return (
         <div className="forecast-card">
-            <img src={dailyForecast.weather.icon} />
-            <h4>{moment.unix(dailyForecast.time.current).format('ddd')}</h4>
-            <h4>{convertKelvinToCelcius(dailyForecast.temp.forecast)}</h4>
+            <img src={forecast.weather.icon} />
+            <h4>{moment.unix(forecast.time.current).format('ddd')}</h4>
+            <h4>{convertKelvinToCelcius(forecast.temp.forecast)}</h4>
         </div>
     );
 };
