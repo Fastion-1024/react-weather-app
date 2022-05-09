@@ -1,6 +1,6 @@
 import { UVExposure } from './enums';
 
-export const GetUVExposure = (uvi: number) => {
+export const getUVExposure = (uvi: number) => {
     const index = Math.round(uvi);
 
     if (index <= 2) {
@@ -26,11 +26,11 @@ export const GetUVExposure = (uvi: number) => {
     throw new Error('UV Index Out of Range!');
 };
 
-export const ConvertKelvinToCelcius = (kelvin: number): number => {
+export const convertKelvinToCelcius = (kelvin: number): number => {
     return Math.round(kelvin - 273.15);
 };
 
-export const ConvertKelvinToFahrenheit = (kelvin: number): number => {
+export const convertKelvinToFahrenheit = (kelvin: number): number => {
     return Math.round(kelvin - 273.15) * 1.8 + 32;
 };
 

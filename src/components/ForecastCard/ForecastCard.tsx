@@ -1,6 +1,6 @@
 import moment from 'moment';
 import React from 'react';
-import { ConvertKelvinToCelcius } from '../../lib/helpers';
+import { convertKelvinToCelcius } from '../../lib/helpers';
 import { Forecast } from '../../lib/types';
 import './ForecastCard.css';
 
@@ -13,7 +13,7 @@ const ForecastCard: React.FC<IProps> = ({ dailyForecast }) => {
         <div className="forecast-card">
             <img src={dailyForecast.weather.icon} />
             <h4>{moment.unix(dailyForecast.time.current).format('ddd')}</h4>
-            <h4>{ConvertKelvinToCelcius(dailyForecast.temp.forecast)}</h4>
+            <h4>{convertKelvinToCelcius(dailyForecast.temp.forecast)}</h4>
         </div>
     );
 };

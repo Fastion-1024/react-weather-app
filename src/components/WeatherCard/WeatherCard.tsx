@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { ConvertKelvinToCelcius } from '../../lib/helpers';
+import { convertKelvinToCelcius } from '../../lib/helpers';
 import { Forecast } from '../../lib/types';
 import './WeatherCard.css';
 
@@ -23,13 +23,13 @@ const WeatherCard: React.FC<IProps> = ({ currentForecast }) => {
                 <div>
                     <h4>Current</h4>
                     <h5>
-                        {ConvertKelvinToCelcius(currentForecast.temp.forecast)}
+                        {convertKelvinToCelcius(currentForecast.temp.forecast)}
                     </h5>
                 </div>
                 <div>
                     <h4>Feels Like</h4>
                     <h5>
-                        {ConvertKelvinToCelcius(
+                        {convertKelvinToCelcius(
                             currentForecast.temp.feels_like
                         )}
                     </h5>

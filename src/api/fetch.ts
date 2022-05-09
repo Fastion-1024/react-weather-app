@@ -1,6 +1,6 @@
 import { City, Forecast } from '../lib/types';
 import { OneCallResponse, GeoReponse } from '.';
-import { GetUVExposure } from '../lib/helpers';
+import { getUVExposure } from '../lib/helpers';
 
 /**
  * Fetches weather data from OpenWeatherMap's OneCall API
@@ -20,7 +20,7 @@ export const fetchOneCall = async (city: City): Promise<Forecast[]> => {
                 humidity: data.current.humidity,
                 precipitation: day.pop,
                 uvi: data.current.uvi,
-                uv_exposure: GetUVExposure(data.current.uvi),
+                uv_exposure: getUVExposure(data.current.uvi),
                 time: {
                     current: data.current.dt,
                     sunrise: data.current.sunrise,
@@ -49,7 +49,7 @@ export const fetchOneCall = async (city: City): Promise<Forecast[]> => {
             humidity: day.humidity,
             precipitation: day.pop,
             uvi: day.uvi,
-            uv_exposure: GetUVExposure(day.uvi),
+            uv_exposure: getUVExposure(day.uvi),
             time: {
                 current: day.dt,
                 sunrise: day.sunrise,
@@ -105,6 +105,12 @@ export const fetchGeoLocation = async (
     });
 };
 
+/**
+ * Fetches city information from OpenWeatherMap's GeoLocation API
+ *
+ * @param lat The geographical coordinates of the city (Latitude)
+ * @param lon The geographical coordinates of the city (Longtitude)
+ */
 export const fetchReverseGeoLocation = async (lat: number, lon: number) => {
     const request = `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&${process.env.REACT_APP_API_KEY_NAME}=${process.env.REACT_APP_API_KEY_VALUE}`;
     const response = await fetch(request);
