@@ -67,7 +67,11 @@ const SearchBar = () => {
                     value={input}
                     onChange={(e) => handleChange(e.target.value)}
                 />
-                <button className="btn-loc" onClick={onLocationClick}>
+                <button
+                    className="btn-loc"
+                    type="button"
+                    onClick={onLocationClick}
+                >
                     <MdOutlineMyLocation />
                     <span></span>
                 </button>
