@@ -104,3 +104,19 @@ export const fetchGeoLocation = async (
         };
     });
 };
+
+export const fetchReverseGeoLocation = async (lat: number, lon: number) => {
+    const request = `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&${process.env.REACT_APP_API_KEY_NAME}=${process.env.REACT_APP_API_KEY_VALUE}`;
+    const response = await fetch(request);
+    const data: GeoReponse[] = await response.json();
+
+    const city: City = {
+        name: data[0].name,
+        lat: data[0].lat,
+        lon: data[0].lon,
+        state: data[0].state,
+        country: data[0].country,
+    };
+
+    return city;
+};

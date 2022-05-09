@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MdOutlineMyLocation } from 'react-icons/md';
-import { fetchGeoLocation } from '../../api/fetch';
+import { fetchGeoLocation, fetchReverseGeoLocation } from '../../api/fetch';
+import { getLocation } from '../../lib/helpers';
 import { City } from '../../lib/types';
 import './SearchBar.css';
 
@@ -40,6 +41,22 @@ const SearchBar: React.FC<IProps> = ({ updateCity }) => {
         updateCity(city);
     };
 
+    const onLocationClick = async () => {
+        try {
+            const pos = await getLocation();
+            const city = await fetchReverseGeoLocation(
+                pos.coords.latitude,
+                pos.coords.longitude
+            );
+
+            city && updateCity(city);
+            setInput('');
+            setSearchResults(null);
+        } catch (err) {
+            alert('Could not determine location');
+        }
+    };
+
     return (
         <div className="search-bar">
             <form className="control" onSubmit={(e) => handleSubmit(e)}>
@@ -49,7 +66,7 @@ const SearchBar: React.FC<IProps> = ({ updateCity }) => {
                     value={input}
                     onChange={(e) => handleChange(e.target.value)}
                 />
-                <button className="btn-loc">
+                <button className="btn-loc" onClick={onLocationClick}>
                     <MdOutlineMyLocation />
                     <span></span>
                 </button>

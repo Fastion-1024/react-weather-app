@@ -33,3 +33,11 @@ export const ConvertKelvinToCelcius = (kelvin: number): number => {
 export const ConvertKelvinToFahrenheit = (kelvin: number): number => {
     return Math.round(kelvin - 273.15) * 1.8 + 32;
 };
+
+export const getLocation = (
+    options?: PositionOptions
+): Promise<GeolocationPosition> => {
+    return new Promise((resolve, reject) =>
+        navigator.geolocation.getCurrentPosition(resolve, reject, options)
+    );
+};
