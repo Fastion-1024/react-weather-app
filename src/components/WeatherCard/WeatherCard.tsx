@@ -1,7 +1,8 @@
 import moment from 'moment';
 import { useState } from 'react';
-import { convertKelvinToCelcius } from '../../lib/helpers';
+import { getTempWithSymbol } from '../../lib/helpers';
 import { Forecast } from '../../lib/types';
+import { useAppContext } from '../AppProvider';
 import './WeatherCard.css';
 
 interface IProps {
@@ -9,6 +10,7 @@ interface IProps {
 }
 
 const WeatherCard: React.FC<IProps> = ({ forecast }) => {
+    const { tempUnit, toggleTempUnit } = useAppContext();
     const [showBack, setShowBack] = useState(false);
 
     const toggleCardFace = () => {
@@ -30,14 +32,18 @@ const WeatherCard: React.FC<IProps> = ({ forecast }) => {
                         <div>
                             <h4>Current</h4>
                             <h5>
-                                {convertKelvinToCelcius(forecast.temp.forecast)}
+                                {getTempWithSymbol(
+                                    forecast.temp.forecast,
+                                    tempUnit
+                                )}
                             </h5>
                         </div>
                         <div>
                             <h4>Feels Like</h4>
                             <h5>
-                                {convertKelvinToCelcius(
-                                    forecast.temp.feels_like
+                                {getTempWithSymbol(
+                                    forecast.temp.feels_like,
+                                    tempUnit
                                 )}
                             </h5>
                         </div>
@@ -50,11 +56,11 @@ const WeatherCard: React.FC<IProps> = ({ forecast }) => {
                 <div className="card-back">
                     <h1>
                         Min Temp:{' '}
-                        {convertKelvinToCelcius(forecast.temp.min_temp)}
+                        {getTempWithSymbol(forecast.temp.min_temp, tempUnit)}
                     </h1>
                     <h1>
                         Max Temp:{' '}
-                        {convertKelvinToCelcius(forecast.temp.max_temp)}
+                        {getTempWithSymbol(forecast.temp.max_temp, tempUnit)}
                     </h1>
                     <h1>Wind Speed: {forecast.wind.wind_speed} m/s</h1>
                     <h1>Wind Direction: {forecast.wind.wind_deg} deg</h1>

@@ -9,7 +9,7 @@ interface IProps {
 }
 
 const ForecastContainer: React.FC<IProps> = ({ weeklyForecast }) => {
-    const { updateActiveCard } = useAppContext();
+    const { updateActiveCard, tempUnit } = useAppContext();
 
     return (
         <div className="forecast-container">
@@ -18,6 +18,7 @@ const ForecastContainer: React.FC<IProps> = ({ weeklyForecast }) => {
                     <ForecastCard
                         key={index}
                         forecast={day}
+                        tempUnit={tempUnit}
                         index={index}
                         handleClick={updateActiveCard}
                     />
