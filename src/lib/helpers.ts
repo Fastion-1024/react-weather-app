@@ -1,4 +1,4 @@
-import { UVExposure } from './enums';
+import { TempUnit, UVExposure } from './enums';
 
 export const getUVExposure = (uvi: number) => {
     const index = Math.round(uvi);
@@ -31,7 +31,20 @@ export const convertKelvinToCelcius = (kelvin: number): number => {
 };
 
 export const convertKelvinToFahrenheit = (kelvin: number): number => {
-    return Math.round(kelvin - 273.15) * 1.8 + 32;
+    return Math.round((kelvin - 273.15) * 1.8 + 32);
+};
+
+const getTemp = (kelvin: number, tempUnit: TempUnit): string => {
+    switch (tempUnit) {
+        case TempUnit.Kelvin:
+            return `${kelvin} °K`;
+        case TempUnit.Celcius:
+            return `${convertKelvinToCelcius(kelvin)} °C`;
+        case TempUnit.Fahrenheit:
+            return `${convertKelvinToFahrenheit(kelvin)} °F`;
+        default:
+            throw new Error('Invalid TempUnit!');
+    }
 };
 
 export const getLocation = (

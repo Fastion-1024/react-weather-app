@@ -5,3 +5,9 @@ export enum UVExposure {
     VeryHigh = 'VERY HIGH',
     Extreme = 'EXTREME',
 }
+
+export enum TempUnit {
+    Kelvin,
+    Celcius,
+    Fahrenheit,
+}

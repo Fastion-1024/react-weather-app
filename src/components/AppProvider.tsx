@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { fetchOneCall } from '../api/fetch';
+import { TempUnit } from '../lib/enums';
 import { City, Forecast, WeeklyForecast } from '../lib/types';
 
 interface IProps {
@@ -8,14 +9,17 @@ interface IProps {
 
 interface IAppContext {
     weeklyForecast: WeeklyForecast | undefined;
+    tempUnit: TempUnit;
     fetchWeather: (city: City) => void;
     updateActiveCard: (index: number) => void;
+    toggleTempUnit: () => void;
 }
 
 const AppContext = React.createContext<IAppContext | null>(null);
 
 const AppProvider: React.FC<IProps> = ({ children }) => {
     const [weeklyForecast, setWeeklyForecast] = useState<WeeklyForecast>();
+    const [tempUnit, setTempUnit] = useState<TempUnit>(TempUnit.Celcius);
 
     const fetchWeather = async (city: City) => {
         const data: Forecast[] = await fetchOneCall(city);
@@ -41,12 +45,20 @@ const AppProvider: React.FC<IProps> = ({ children }) => {
         });
     };
 
+    const toggleTempUnit = () => {
+        tempUnit === TempUnit.Celcius
+            ? setTempUnit(TempUnit.Fahrenheit)
+            : setTempUnit(TempUnit.Celcius);
+    };
+
     return (
         <AppContext.Provider
             value={{
                 weeklyForecast,
+                tempUnit,
                 fetchWeather,
                 updateActiveCard,
+                toggleTempUnit,
             }}
         >
             {children}
