@@ -34,7 +34,10 @@ export const convertKelvinToFahrenheit = (kelvin: number): number => {
     return Math.round((kelvin - 273.15) * 1.8 + 32);
 };
 
-const getTemp = (kelvin: number, tempUnit: TempUnit): string => {
+export const getTempWithSymbol = (
+    kelvin: number,
+    tempUnit: TempUnit
+): string => {
     switch (tempUnit) {
         case TempUnit.Kelvin:
             return `${kelvin} °K`;
