@@ -4,11 +4,3 @@
     justify-content: center;
     align-items: center;
 }
-
-.weather-card {
-    flex-basis: 60%;
-}
-
-.forecast-container {
-    flex-basis: 35%;
-}
