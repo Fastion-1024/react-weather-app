@@ -9,6 +9,7 @@ interface IProps {
 interface IAppContext {
     weeklyForecast: WeeklyForecast | undefined;
     fetchWeather: (city: City) => void;
+    updateActiveCard: (index: number) => void;
 }
 
 const AppContext = React.createContext<IAppContext | null>(null);
@@ -24,8 +25,30 @@ const AppProvider: React.FC<IProps> = ({ children }) => {
         });
     };
 
+    const updateActiveCard = (index: number) => {
+        console.log(index);
+
+        if (!weeklyForecast) return;
+
+        const arr = [
+            weeklyForecast.current,
+            ...weeklyForecast.forecast.filter((item, i) => i !== index),
+        ].sort((a, b) => a.time.current - b.time.current);
+
+        setWeeklyForecast({
+            current: weeklyForecast.forecast[index],
+            forecast: arr,
+        });
+    };
+
     return (
-        <AppContext.Provider value={{ weeklyForecast, fetchWeather }}>
+        <AppContext.Provider
+            value={{
+                weeklyForecast,
+                fetchWeather,
+                updateActiveCard,
+            }}
+        >
             {children}
         </AppContext.Provider>
     );
