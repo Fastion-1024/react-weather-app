@@ -57,3 +57,11 @@ export const getLocation = (
         navigator.geolocation.getCurrentPosition(resolve, reject, options)
     );
 };
+
+export const getDirection = (degrees: number) => {
+    const directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+
+    const deg = Math.floor(degrees / 45 + 0.5) % 8;
+
+    return directions[deg];
+};
