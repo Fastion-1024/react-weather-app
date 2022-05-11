@@ -1,3 +1,13 @@
+.weather-card h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    text-transform: capitalize;
+    user-select: none;
+}
+
 .weather-card {
     width: 80%;
     max-width: 20rem;
@@ -27,6 +37,9 @@
     backface-visibility: hidden;
 }
 
+/* 
+    Card Front
+*/
 .card-front {
     display: flex;
     flex-direction: column;
@@ -34,10 +47,6 @@
     align-items: center;
     transform: rotateY(0);
     padding: 1em;
-}
-
-.card-back {
-    transform: rotateY(180deg);
 }
 
 .card-footer {
@@ -49,11 +58,40 @@
     text-align: center;
 }
 
-.weather-card h1,
-h2,
-h3,
-h4,
-h5 {
-    text-transform: capitalize;
-    user-select: none;
+.card-front .icon {
+    font-size: 1.5rem;
+}
+
+.card-front p {
+    display: flex;
+}
+
+/* 
+    Card Back
+*/
+
+.card-back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.card-back .container {
+    display: flex;
+    justify-content: ce;
+    align-items: center;
+    margin-left: 0.5em;
+}
+
+.container .icon {
+    font-size: 3rem;
+}
+
+.container div {
+    margin-left: 1em;
+}
+
+.container div h4 {
+    font-weight: 400;
 }
