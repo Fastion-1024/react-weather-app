@@ -1,0 +1,37 @@
+.recent-locations-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5em;
+}
+
+.recent-locations-header {
+}
+
+.recent-locations-card-container {
+    width: 100%;
+    padding: 0.5em;
+}
+
+.recent-locations-list {
+    padding-left: 0;
+}
+
+.recent-place-card {
+    display: flex;
+    align-items: center;
+    line-height: 2.5em;
+    background-color: ghostwhite;
+    border-bottom: 1px solid rgba(42, 42, 42, 0.16);
+}
+
+.recent-place-card span {
+    padding-left: 0.5em;
+    flex-grow: 1;
+}
+
+.recent-place-card button {
+    display: flex;
+    align-items: center;
+    border: none;
+    background: none;
+}
