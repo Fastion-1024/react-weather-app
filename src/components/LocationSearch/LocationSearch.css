@@ -1,0 +1,80 @@
+/*  Location Search */
+.location-search {
+    position: relative;
+    margin: 1em 0.5em;
+}
+
+/* Search Bar */
+.search-bar {
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    padding: 0.25em 0.5em;
+}
+
+.search-bar input {
+    flex-grow: 1;
+    border: none;
+    font-size: calc(1vw + 1rem);
+}
+
+.search-bar input:focus-within {
+    outline: none;
+}
+
+.search-bar button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    display: flex;
+    align-items: center;
+    font-size: 2em;
+}
+
+/* Search Results */
+.search-results-box {
+    position: absolute;
+    top: calc(100% + 0.5em);
+    left: 0;
+    width: 100%;
+    background-color: lightsteelblue;
+}
+
+.suggested-places-container {
+    padding: 1em;
+}
+
+.suggested-places-container hr {
+    color: darkslategrey;
+}
+
+.suggested-places-header {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: darkslategray;
+}
+
+.suggested-results {
+    padding: 0 0.5em;
+}
+
+.suggested-results li {
+    padding: 0.25em;
+    cursor: pointer;
+}
+
+.suggested-results li:hover {
+    border-top: 1px solid darkslategray;
+    border-bottom: 1px solid darkslategray;
+}
+
+.search-results-box button {
+    width: 100%;
+    padding: 0.5em 0.25em;
+    background: none;
+    border: none;
+    background-color: darkslategray;
+    color: rgb(232, 232, 232);
+    font-size: 0.9rem;
+    cursor: pointer;
+}
