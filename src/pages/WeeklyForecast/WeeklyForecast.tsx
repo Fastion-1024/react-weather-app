@@ -1,7 +1,14 @@
-import React from 'react';
+import LocationSearch from '../../components/LocationSearch/LocationSearch';
+import TabContainer from '../../components/TabContainer/TabContainer';
+import './WeeklyForecast.css';
 
 const WeeklyForecast = () => {
-    return <main>WeeklyForecast</main>;
+    return (
+        <main>
+            <LocationSearch />
+            <TabContainer />
+        </main>
+    );
 };
 
 export default WeeklyForecast;

@@ -25,23 +25,16 @@ const AppProvider: React.FC<IProps> = ({ children }) => {
         const data: Forecast[] = await fetchOneCall(city);
         setWeeklyForecast({
             current: data[0],
-            forecast: data.slice(1, 6),
+            forecast: data.slice(0, data.length - 1),
         });
     };
 
     const updateActiveCard = (index: number) => {
-        console.log(index);
-
         if (!weeklyForecast) return;
 
-        const arr = [
-            weeklyForecast.current,
-            ...weeklyForecast.forecast.filter((item, i) => i !== index),
-        ].sort((a, b) => a.time.current - b.time.current);
-
         setWeeklyForecast({
+            ...weeklyForecast,
             current: weeklyForecast.forecast[index],
-            forecast: arr,
         });
     };
 

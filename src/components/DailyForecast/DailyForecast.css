@@ -1,0 +1,58 @@
+.daily-forecast-container {
+    height: 100%;
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0.5em;
+}
+
+.forecast-overview {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.forecast-overview-footer {
+    display: flex;
+    gap: 1em;
+    color: white;
+    background-color: darkslategray;
+    padding: 0.5em;
+    text-align: center;
+    border-radius: 1em;
+    margin: 1em 0;
+}
+
+.footer-item p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-item .icon {
+    font-size: 1rem;
+}
+
+.forecast-details {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(10.6em, 1fr));
+    gap: 1em;
+}
+
+.forecast-details-item {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+}
+
+.forecast-details-item .icon {
+    font-size: 2.75rem;
+}
+
+.forecast-details-item div {
+    margin-left: 1em;
+}

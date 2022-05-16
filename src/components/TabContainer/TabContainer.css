@@ -1,0 +1,73 @@
+/* TAB CONTAINER */
+.tab-container {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'tab-headers' 'tab-page';
+    overflow-x: hidden;
+}
+
+/* TAB HEADERS */
+.tab-headers-container {
+    overflow-x: auto;
+    scrollbar-width: none;
+    grid-area: tab-headers;
+}
+
+.tab-headers-list {
+    padding: 0;
+    display: inline-flex;
+    margin-right: 1em;
+    margin-bottom: 0;
+}
+
+/* TAB HEADER */
+.tab-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    color: white;
+    background-color: hsl(180, 25%, 25%);
+    min-width: 6em;
+    border-top: 1px solid rgba(42, 42, 42, 0.16);
+    border-bottom: 1px solid rgba(42, 42, 42, 0.16);
+    border-right: 1px solid rgba(42, 42, 42, 0.16);
+    cursor: pointer;
+}
+
+.tab-item.active {
+    color: black;
+    background-color: hsl(180, 25%, 45%);
+    border-bottom: none;
+}
+
+.tab-item div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab-item h3 {
+    font-size: 0.9rem;
+}
+
+.weather-icon {
+    max-width: 3em;
+}
+
+.tab-item div span {
+    font-size: 0.8rem;
+}
+
+.tab-item.active .weather-icon {
+    display: none;
+}
+
+/* TAB PAGE */
+
+.tab-page-container {
+    grid-area: tab-page;
+    background-color: hsl(180, 25%, 45%);
+}

@@ -1,0 +1,15 @@
+main {
+    height: 100vh;
+    display: grid;
+    grid-template-areas: 'search' 'tabs';
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
+}
+
+.location-search {
+    grid-area: search;
+}
+
+.tab-container {
+    grid-area: tabs;
+}
