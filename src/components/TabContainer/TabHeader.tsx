@@ -1,5 +1,5 @@
 import moment from 'moment';
-import React from 'react';
+import React, { useRef } from 'react';
 import { TempUnit } from '../../lib/enums';
 import { getTempWithSymbol } from '../../lib/helpers';
 import { Forecast } from '../../lib/types';
@@ -15,11 +15,24 @@ const TabHeader: React.FC<IProps> = ({
     isActive,
     onTabHeaderClick,
 }) => {
+    const headerRef = useRef<HTMLLIElement>(null);
+
+    const handleClick = () => {
+        headerRef.current &&
+            headerRef.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+                inline: 'center',
+            });
+        onTabHeaderClick();
+    };
+
     return (
         <li
             className={`${isActive ? 'tab-item active' : 'tab-item'}`}
             tabIndex={-1}
-            onClick={onTabHeaderClick}
+            ref={headerRef}
+            onClick={handleClick}
         >
             <h3>
                 <time
