@@ -65,9 +65,15 @@ const AppProvider: React.FC<IProps> = ({ children }) => {
 
     const addRecentLocation = (location: RecentLocation) => {
         setRecentLocations((prev) => {
+            const arr = prev.filter(
+                (loc) =>
+                    loc.city.lat !== location.city.lat &&
+                    loc.city.lon !== location.city.lon
+            );
+
             return prev.length < 5
-                ? [location, ...prev]
-                : [location, ...prev.slice(0, prev.length - 1)];
+                ? [location, ...arr]
+                : [location, ...arr.slice(0, prev.length - 1)];
         });
     };
 
