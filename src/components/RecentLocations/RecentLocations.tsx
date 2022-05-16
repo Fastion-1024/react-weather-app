@@ -5,10 +5,15 @@ import './RecentLocations.css';
 
 interface IProps {
     locations: RecentLocation[];
+    onLocationClick: (location: RecentLocation) => void;
     onRemoveLocation: (location: RecentLocation) => void;
 }
 
-const RecentLocations: React.FC<IProps> = ({ locations, onRemoveLocation }) => {
+const RecentLocations: React.FC<IProps> = ({
+    locations,
+    onLocationClick,
+    onRemoveLocation,
+}) => {
     return (
         <div className="recent-locations-container">
             <h3 className="recent-locations-header">Your Recent Places</h3>
@@ -26,12 +31,17 @@ const RecentLocations: React.FC<IProps> = ({ locations, onRemoveLocation }) => {
                             <li
                                 key={index}
                                 className="recent-place-card"
-                                onClick={() => onRemoveLocation(location)}
+                                onClick={() => onLocationClick(location)}
                             >
                                 <span>
                                     <strong>{name}</strong>, {country}
                                 </span>
-                                <button>
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        onRemoveLocation(location);
+                                    }}
+                                >
                                     <MdClose />
                                 </button>
                             </li>

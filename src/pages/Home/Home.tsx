@@ -4,10 +4,15 @@ import RecentLocations from '../../components/RecentLocations/RecentLocations';
 import { RecentLocation } from '../../lib/types';
 
 const Home = () => {
-    const { recentLocations, removeRecentLocation } = useAppContext();
+    const { recentLocations, removeRecentLocation, fetchWeather } =
+        useAppContext();
 
     const handleRemoveRecentLocation = (location: RecentLocation) => {
         removeRecentLocation(location);
+    };
+
+    const handleLocationClick = (location: RecentLocation) => {
+        fetchWeather(location.city);
     };
 
     return (
@@ -15,6 +20,7 @@ const Home = () => {
             <LocationSearch />
             <RecentLocations
                 locations={recentLocations}
+                onLocationClick={handleLocationClick}
                 onRemoveLocation={handleRemoveRecentLocation}
             />
         </main>
