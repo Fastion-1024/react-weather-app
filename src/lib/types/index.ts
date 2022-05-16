@@ -5,3 +5,4 @@ export * from './temperature';
 export * from './time';
 export * from './wind';
 export * from './weeklyForecast';
+export * from './recentLocation';

@@ -1,11 +1,11 @@
 import React from 'react';
-import { City } from '../../lib/types';
+import { RecentLocation } from '../../lib/types';
 import { MdClose } from 'react-icons/md';
 import './RecentLocations.css';
 
 interface IProps {
-    locations: City[];
-    onRemoveLocation: (city: City) => void;
+    locations: RecentLocation[];
+    onRemoveLocation: (location: RecentLocation) => void;
 }
 
 const RecentLocations: React.FC<IProps> = ({ locations, onRemoveLocation }) => {
@@ -21,6 +21,7 @@ const RecentLocations: React.FC<IProps> = ({ locations, onRemoveLocation }) => {
                         Your recently searched for places will appear here.
                     </li>
                     {locations.map((location, index) => {
+                        const { name, country } = location.city;
                         return (
                             <li
                                 key={index}
@@ -28,8 +29,7 @@ const RecentLocations: React.FC<IProps> = ({ locations, onRemoveLocation }) => {
                                 onClick={() => onRemoveLocation(location)}
                             >
                                 <span>
-                                    <strong>{location.name}</strong>,{' '}
-                                    {location.country}
+                                    <strong>{name}</strong>, {country}
                                 </span>
                                 <button>
                                     <MdClose />

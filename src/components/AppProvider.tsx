@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { fetchOneCall } from '../api/fetch';
+import useLocalStorage from '../hooks/useLocalStorage';
 import { TempUnit } from '../lib/enums';
-import { City, Forecast, WeeklyForecast } from '../lib/types';
+import { City, Forecast, WeeklyForecast, RecentLocation } from '../lib/types';
 
 interface IProps {
     children?: React.ReactNode;
@@ -9,9 +10,11 @@ interface IProps {
 
 interface IAppContext {
     weeklyForecast: WeeklyForecast | undefined;
+    recentLocations: RecentLocation[];
     tempUnit: TempUnit;
     fetchWeather: (city: City) => void;
     updateActiveCard: (index: number) => void;
+    removeRecentLocation: (location: RecentLocation) => void;
     toggleTempUnit: () => void;
 }
 
@@ -19,13 +22,29 @@ const AppContext = React.createContext<IAppContext | null>(null);
 
 const AppProvider: React.FC<IProps> = ({ children }) => {
     const [weeklyForecast, setWeeklyForecast] = useState<WeeklyForecast>();
+    const [recentLocations, setRecentLocations] = useLocalStorage<
+        RecentLocation[]
+    >('RecentLocations', []);
     const [tempUnit, setTempUnit] = useState<TempUnit>(TempUnit.Celcius);
 
     const fetchWeather = async (city: City) => {
         const data: Forecast[] = await fetchOneCall(city);
+        const forecast = data.slice(0, data.length - 1);
+
         setWeeklyForecast({
-            current: data[0],
-            forecast: data.slice(0, data.length - 1),
+            current: forecast[0],
+            forecast: forecast,
+        });
+
+        addRecentLocation({
+            city: city,
+            dailyInfo: forecast.map((day) => {
+                return {
+                    time: day.time.current,
+                    temp: day.temp.forecast,
+                    icon: day.weather.icon,
+                };
+            }),
         });
     };
 
@@ -44,13 +63,37 @@ const AppProvider: React.FC<IProps> = ({ children }) => {
             : setTempUnit(TempUnit.Celcius);
     };
 
+    const addRecentLocation = (location: RecentLocation) => {
+        setRecentLocations((prev) => {
+            return prev.length < 5
+                ? [location, ...prev]
+                : [location, ...prev.slice(0, prev.length - 1)];
+        });
+    };
+
+    const removeRecentLocation = (location: RecentLocation) => {
+        setRecentLocations((prev) => {
+            const locIndex = prev.findIndex(
+                (loc) =>
+                    loc.city.lat === location.city.lat &&
+                    loc.city.lon === location.city.lon
+            );
+
+            return locIndex
+                ? [...prev.slice(0, locIndex), ...prev.slice(locIndex + 1)]
+                : prev;
+        });
+    };
+
     return (
         <AppContext.Provider
             value={{
                 weeklyForecast,
+                recentLocations,
                 tempUnit,
                 fetchWeather,
                 updateActiveCard,
+                removeRecentLocation,
                 toggleTempUnit,
             }}
         >
