@@ -79,9 +79,9 @@ const AppProvider: React.FC<IProps> = ({ children }) => {
                     loc.city.lon === location.city.lon
             );
 
-            return locIndex
-                ? [...prev.slice(0, locIndex), ...prev.slice(locIndex + 1)]
-                : prev;
+            return locIndex === -1
+                ? prev
+                : [...prev.slice(0, locIndex), ...prev.slice(locIndex + 1)];
         });
     };
 
