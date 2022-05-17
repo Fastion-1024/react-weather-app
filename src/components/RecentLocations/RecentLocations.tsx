@@ -1,6 +1,9 @@
 import React from 'react';
+import moment from 'moment';
 import { RecentLocation } from '../../lib/types';
-import { MdClose } from 'react-icons/md';
+import { getTempWithSymbol } from '../../lib/helpers';
+import { TempUnit } from '../../lib/enums';
+import LocationCard from '../LocationCard/LocationCard';
 import './RecentLocations.css';
 
 interface IProps {
@@ -14,6 +17,14 @@ const RecentLocations: React.FC<IProps> = ({
     onLocationClick,
     onRemoveLocation,
 }) => {
+    const findDailyInfo = (location: RecentLocation) => {
+        const now = moment().utc();
+
+        return location.dailyInfo.findIndex((loc) =>
+            moment(now).isSame(moment.unix(loc.time), 'day')
+        );
+    };
+
     return (
         <div className="recent-locations-container">
             <h3 className="recent-locations-header">Your Recent Places</h3>
@@ -26,24 +37,26 @@ const RecentLocations: React.FC<IProps> = ({
                         Your recently searched for places will appear here.
                     </li>
                     {locations.map((location, index) => {
+                        const locIndex = findDailyInfo(location);
                         const { name, country } = location.city;
+                        const { temp, icon } = location.dailyInfo[locIndex];
+
                         return (
                             <li
                                 key={index}
-                                className="recent-place-card"
+                                className="recent-place-item"
                                 onClick={() => onLocationClick(location)}
                             >
-                                <span>
-                                    <strong>{name}</strong>, {country}
-                                </span>
-                                <button
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        onRemoveLocation(location);
-                                    }}
-                                >
-                                    <MdClose />
-                                </button>
+                                <LocationCard
+                                    cityName={name}
+                                    country={country}
+                                    temp={getTempWithSymbol(
+                                        temp,
+                                        TempUnit.Celcius
+                                    )}
+                                    icon={icon}
+                                    onDelete={() => onRemoveLocation(location)}
+                                />
                             </li>
                         );
                     })}
