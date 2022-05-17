@@ -4,7 +4,7 @@ import './WeeklyForecast.css';
 
 const WeeklyForecast = () => {
     return (
-        <main>
+        <main className="weekly-forecast-container">
             <LocationSearch />
             <TabContainer />
         </main>

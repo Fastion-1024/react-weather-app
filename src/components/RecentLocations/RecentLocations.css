@@ -1,12 +1,10 @@
 .recent-locations-container {
-    display: flex;
-    flex-direction: column;
-    margin: 0.5em;
+    margin: 0 0.5em;
+    color: var(--clr-primary-800);
 }
 
 .recent-locations-card-container {
     width: 100%;
-    padding: 0.5em;
 }
 
 .recent-locations-list {

@@ -1,0 +1,15 @@
+.home-container {
+    display: grid;
+    grid-template-areas: 'search' 'recent';
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
+    background-color: var(--clr-primary-200);
+}
+
+.home-container .location-search {
+    grid-area: search;
+}
+
+.home-container .recent-locations-container {
+    grid-area: recent;
+}

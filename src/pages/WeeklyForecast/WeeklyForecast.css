@@ -1,15 +1,15 @@
-main {
-    height: 100vh;
+.weekly-forecast-container {
     display: grid;
     grid-template-areas: 'search' 'tabs';
     grid-template-rows: auto 1fr;
     grid-template-columns: 1fr;
+    background-color: var(--clr-primary-200);
 }
 
-.location-search {
+.weekly-forecast-container .location-search {
     grid-area: search;
 }
 
-.tab-container {
+.weekly-forecast-container .tab-container {
     grid-area: tabs;
 }

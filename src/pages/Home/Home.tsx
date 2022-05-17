@@ -2,6 +2,7 @@ import { useAppContext } from '../../components/AppProvider';
 import LocationSearch from '../../components/LocationSearch/LocationSearch';
 import RecentLocations from '../../components/RecentLocations/RecentLocations';
 import { RecentLocation } from '../../lib/types';
+import './Home.css';
 
 const Home = () => {
     const { recentLocations, removeRecentLocation, fetchWeather } =
@@ -16,7 +17,7 @@ const Home = () => {
     };
 
     return (
-        <main>
+        <main className="home-container">
             <LocationSearch />
             <RecentLocations
                 locations={recentLocations}

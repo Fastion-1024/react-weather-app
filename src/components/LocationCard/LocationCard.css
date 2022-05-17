@@ -2,8 +2,9 @@
     display: flex;
     align-items: center;
     line-height: 2.5em;
-    background-color: ghostwhite;
-    border-bottom: 1px solid rgba(42, 42, 42, 0.16);
+    color: var(--clr-white);
+    background-color: var(--clr-primary-500);
+    border-bottom: 1px solid var(--clr-border);
 }
 
 .location-card-city {
@@ -15,7 +16,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 0.5em;
     gap: 0.5em;
 }
 
@@ -26,6 +26,8 @@
 .recent-place-item button {
     display: flex;
     align-items: center;
-    border: none;
+    margin: 0 0.5em;
+    color: inherit;
     background: none;
+    border: none;
 }

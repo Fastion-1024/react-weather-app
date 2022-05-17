@@ -1,10 +1,11 @@
 .daily-forecast-container {
     height: 100%;
-    text-transform: capitalize;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    text-transform: capitalize;
     padding: 0.5em;
+    color: var(--clr-primary-800);
 }
 
 .forecast-overview {
@@ -17,9 +18,9 @@
 .forecast-overview-footer {
     display: flex;
     gap: 1em;
-    color: white;
-    background-color: darkslategray;
-    padding: 0.5em;
+    color: var(--clr-white);
+    background-color: var(--clr-primary-600);
+    padding: 0.5em 1em;
     text-align: center;
     border-radius: 1em;
     margin: 1em 0;

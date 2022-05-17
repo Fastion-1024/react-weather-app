@@ -1,3 +1,15 @@
+main {
+    height: 100vh;
+    --clr-primary-200: hsla(180, 30%, 80%);
+    --clr-primary-400: hsla(180, 25%, 45%);
+    --clr-primary-500: hsla(180, 30%, 30%);
+    --clr-primary-600: hsla(180, 30%, 25%);
+    --clr-primary-700: hsla(180, 30%, 20%);
+    --clr-primary-800: hsla(180, 30%, 10%);
+    --clr-white: hsla(0, 0%, 95%);
+    --clr-border: hsla(0, 0%, 16%, 0.2);
+}
+
 h2 {
     font-size: 1.5rem;
 }
