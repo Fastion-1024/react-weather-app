@@ -12,8 +12,6 @@
     overflow-x: auto;
     scrollbar-width: none;
     grid-area: tab-headers;
-    cursor: pointer;
-    user-select: none;
 }
 
 .tab-headers-list {
@@ -35,6 +33,8 @@
     border-top: 1px solid var(--clr-border);
     border-bottom: 1px solid var(--clr-border);
     border-right: 1px solid var(--clr-border);
+    cursor: pointer;
+    user-select: none;
 }
 
 .tab-item.active {
@@ -71,4 +71,26 @@
     grid-area: tab-page;
     background-color: var(--clr-primary-400);
     overflow-y: auto;
+}
+
+@media only screen and (min-width: 35rem) {
+    .tab-item {
+        min-width: 12em;
+        min-height: 6em;
+        padding: 0.5em;
+    }
+
+    .tab-item h3 {
+        font-size: calc(1vw + 0.75rem);
+    }
+
+    .tab-item div span {
+        font-size: calc(1vw + 0.6rem);
+    }
+
+    .weather-icon {
+        width: 100%;
+        height: auto;
+        max-width: 5em;
+    }
 }

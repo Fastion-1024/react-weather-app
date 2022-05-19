@@ -1,11 +1,12 @@
 .location-card-container {
     display: flex;
     align-items: center;
-    line-height: 2.5em;
     color: var(--clr-white);
     background-color: var(--clr-primary-500);
     border-bottom: 1px solid var(--clr-border);
     gap: 0.5em;
+    user-select: none;
+    cursor: pointer;
 }
 
 .location-card-container .city {
@@ -17,7 +18,7 @@
     max-width: 3em;
 }
 
-.recent-place-item button {
+.location-card-container button {
     display: flex;
     align-items: center;
     margin: 0.5em;
@@ -26,4 +27,39 @@
     background: none;
     border: none;
     font-size: 1.1em;
+}
+
+@media only screen and (min-width: 25rem) {
+    .location-card-container {
+        min-height: 8em;
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        grid-template-areas: 'city icon' 'temp icon';
+        gap: 0;
+        position: relative;
+    }
+
+    .location-card-container .city {
+        grid-area: city;
+        font-size: 1.1em;
+    }
+
+    .location-card-container .temp {
+        grid-area: temp;
+        margin-left: 0.5em;
+        font-size: 1.1em;
+    }
+
+    .location-card-container .icon {
+        grid-area: icon;
+        max-width: 6em;
+        justify-self: center;
+    }
+
+    .location-card-container button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+    }
 }

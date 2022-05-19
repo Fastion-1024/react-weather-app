@@ -57,3 +57,48 @@
 .forecast-details-item div {
     margin-left: 1em;
 }
+
+@media only screen and (min-width: 35rem) {
+    .forecast-overview h3 {
+        font-size: calc(2vw + 1rem);
+    }
+
+    .forecast-overview img {
+        transform: scale(1.2);
+    }
+
+    .forecast-overview-footer {
+        margin-top: 2em;
+        padding: 1em 2em;
+    }
+
+    .footer-item h4 {
+        font-size: calc(1.5vw + 0.75rem);
+    }
+
+    .footer-item p {
+        font-size: calc(1.5vw + 0.6rem);
+    }
+
+    .footer-item .icon {
+        font-size: calc(1.5vw + 0.75rem);
+    }
+
+    .forecast-details {
+        grid-template-columns: repeat(auto-fill, minmax(16em, 1fr));
+        row-gap: 3em;
+    }
+
+    .forecast-details-item {
+        justify-content: center;
+        min-width: 1em;
+    }
+
+    .forecast-details-item p {
+        font-size: calc(1.5vw + 0.6rem);
+    }
+
+    .forecast-details-item .icon {
+        font-size: calc(1.5vw + 2.75rem);
+    }
+}

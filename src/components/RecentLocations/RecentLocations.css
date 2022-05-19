@@ -10,3 +10,15 @@
 .recent-locations-list {
     padding-left: 0;
 }
+
+@media only screen and (min-width: 25rem) {
+    .recent-locations-container {
+        margin: 0 1em;
+    }
+
+    .recent-locations-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(14em, 1fr));
+        gap: 1em;
+    }
+}

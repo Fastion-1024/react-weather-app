@@ -24,7 +24,7 @@ const LocationCard: React.FC<IProps> = ({
     return (
         <div className="location-card-container">
             <p className="city">
-                <strong>{cityName}</strong>, {country}
+                <strong>{cityName}</strong> {country}
             </p>
             <p className="temp">{temp}</p>
             <img src={icon} className="icon" />

@@ -70,9 +70,6 @@
     cursor: pointer;
 }
 
-.suggested-results li:hover {
-}
-
 .search-results-box button {
     width: 100%;
     padding: 0.5em 0.25em;
@@ -82,4 +79,10 @@
     color: var(--clr-white);
     font-size: 0.9rem;
     cursor: pointer;
+}
+
+@media only screen and (min-width: 35rem) {
+    .location-search {
+        margin: 2em 1em;
+    }
 }
