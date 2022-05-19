@@ -23,13 +23,11 @@ const LocationCard: React.FC<IProps> = ({
 
     return (
         <div className="location-card-container">
-            <div className="location-card-city">
-                <strong>{cityName}</strong>, <span>{country}</span>
-            </div>
-            <div className="location-card-weather">
-                <p>{temp}</p>
-                <img src={icon} className="icon" />
-            </div>
+            <p className="city">
+                <strong>{cityName}</strong>, {country}
+            </p>
+            <p className="temp">{temp}</p>
+            <img src={icon} className="icon" />
 
             <button onClick={handleButtonClick}>
                 <MdClose />
