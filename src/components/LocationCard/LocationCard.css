@@ -29,7 +29,7 @@
     font-size: 1.1em;
 }
 
-@media only screen and (min-width: 25rem) {
+@media only screen and (min-width: 35rem) {
     .location-card-container {
         min-height: 8em;
         display: grid;
@@ -37,17 +37,18 @@
         grid-template-areas: 'city icon' 'temp icon';
         gap: 0;
         position: relative;
+        height: 100%;
     }
 
     .location-card-container .city {
         grid-area: city;
-        font-size: 1.1em;
+        /* font-size: 1.1em; */
     }
 
     .location-card-container .temp {
         grid-area: temp;
         margin-left: 0.5em;
-        font-size: 1.1em;
+        /* font-size: 1.1em; */
     }
 
     .location-card-container .icon {
@@ -61,5 +62,11 @@
         top: 0;
         right: 0;
         cursor: pointer;
+    }
+}
+
+@media only screen and (min-width: 70rem) {
+    .location-card-container {
+        row-gap: 1.5em;
     }
 }

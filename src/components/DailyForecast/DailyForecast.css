@@ -2,13 +2,14 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     text-transform: capitalize;
     padding: 0.5em;
+    gap: 2em;
     color: var(--clr-primary-800);
 }
 
 .forecast-overview {
+    margin-top: 1em;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,72 +34,75 @@
 }
 
 .footer-item .icon {
-    font-size: 1rem;
+    font-size: var(--icon-s);
 }
 
 .forecast-details {
     display: grid;
-    justify-content: center;
-    align-items: center;
-    grid-template-columns: repeat(auto-fill, minmax(10.6em, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(10.65em, 1fr));
     gap: 1em;
 }
 
 .forecast-details-item {
     display: flex;
+    justify-content: center;
     align-items: center;
     font-weight: 400;
 }
 
 .forecast-details-item .icon {
-    font-size: 2.75rem;
+    font-size: var(--icon-xl);
 }
 
 .forecast-details-item div {
     margin-left: 1em;
 }
 
+/* Media Queries */
 @media only screen and (min-width: 35rem) {
-    .forecast-overview h3 {
-        font-size: calc(2vw + 1rem);
+    .daily-forecast-container {
+        gap: 2em;
     }
 
-    .forecast-overview img {
-        transform: scale(1.2);
-    }
-
-    .forecast-overview-footer {
-        margin-top: 2em;
-        padding: 1em 2em;
-    }
-
-    .footer-item h4 {
-        font-size: calc(1.5vw + 0.75rem);
-    }
-
-    .footer-item p {
-        font-size: calc(1.5vw + 0.6rem);
-    }
-
-    .footer-item .icon {
-        font-size: calc(1.5vw + 0.75rem);
+    .forecast-overview {
+        margin-top: 2.5em;
+        gap: 0.5em;
     }
 
     .forecast-details {
-        grid-template-columns: repeat(auto-fill, minmax(16em, 1fr));
-        row-gap: 3em;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (min-width: 50rem) {
+    .daily-forecast-container {
+        padding: 0.75em;
+        gap: 4em;
     }
 
-    .forecast-details-item {
-        justify-content: center;
-        min-width: 1em;
+    .forecast-overview {
+        margin-top: 4em;
     }
 
-    .forecast-details-item p {
-        font-size: calc(1.5vw + 0.6rem);
+    .forecast-details {
+        column-gap: 2.5em;
+        row-gap: 1.5em;
+    }
+}
+
+@media only screen and (min-width: 70rem) {
+    .daily-forecast-container {
+        padding: 1em;
+        gap: 6em;
     }
 
-    .forecast-details-item .icon {
-        font-size: calc(1.5vw + 2.75rem);
+    .forecast-overview {
+        margin-top: 6em;
+        gap: 1em;
+    }
+
+    .forecast-details {
+        row-gap: 2.5em;
+        grid-template-columns: repeat(3, 1fr);
     }
 }

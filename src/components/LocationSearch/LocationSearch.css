@@ -16,7 +16,7 @@
 
 .search-bar input {
     flex-grow: 1;
-    font-size: calc(1vw + 1rem);
+    font-size: var(--fs-500);
     border: none;
     color: inherit;
     background-color: inherit;
@@ -32,7 +32,7 @@
     background: none;
     display: flex;
     align-items: center;
-    font-size: 2em;
+    font-size: var(--icon-m);
     color: inherit;
 }
 
@@ -44,6 +44,7 @@
     width: 100%;
     background-color: var(--clr-primary-200);
     box-shadow: 4px 4px 8px 2px hsla(0, 0%, 16%, 0.75);
+    z-index: 10;
 }
 
 .suggested-places-container {
@@ -57,6 +58,7 @@
 
 .suggested-places-header {
     font-size: 1.2rem;
+    font-size: var(--fs-500);
     font-weight: 600;
 }
 
@@ -68,6 +70,7 @@
 .suggested-results li {
     padding: 0.25em;
     cursor: pointer;
+    font-size: var(--fs-200);
 }
 
 .search-results-box button {
@@ -77,12 +80,24 @@
     border: none;
     background-color: var(--clr-primary-600);
     color: var(--clr-white);
-    font-size: 0.9rem;
+    font-size: var(--fs-200);
     cursor: pointer;
 }
 
 @media only screen and (min-width: 35rem) {
     .location-search {
-        margin: 2em 1em;
+        margin: 1.25em 0.75em;
+    }
+}
+
+@media only screen and (min-width: 50rem) {
+    .location-search {
+        margin: 1.5em 1em;
+    }
+}
+
+@media only screen and (min-width: 70rem) {
+    .location-search {
+        margin: 1.5em 1em;
     }
 }

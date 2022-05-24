@@ -34,7 +34,7 @@ const TabHeader: React.FC<IProps> = ({
             ref={headerRef}
             onClick={handleClick}
         >
-            <h3>
+            <h5>
                 <time
                     dateTime={moment
                         .unix(forecast.time.current)
@@ -42,7 +42,7 @@ const TabHeader: React.FC<IProps> = ({
                 >
                     {moment.unix(forecast.time.current).format('ddd D MMM')}
                 </time>
-            </h3>
+            </h5>
             <div>
                 <img className="weather-icon" src={forecast.weather.icon} />
                 <span>

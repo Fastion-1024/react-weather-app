@@ -11,14 +11,21 @@
     padding-left: 0;
 }
 
-@media only screen and (min-width: 25rem) {
+@media only screen and (min-width: 35rem) {
     .recent-locations-container {
         margin: 0 1em;
     }
 
     .recent-locations-list {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(14em, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(16em, 1fr));
+        grid-auto-rows: 1fr;
         gap: 1em;
+    }
+}
+
+@media only screen and (min-width: 35rem) {
+    .recent-locations-list {
+        grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
     }
 }

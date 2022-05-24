@@ -1,5 +1,11 @@
 main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
+    background-color: var(--clr-primary-200);
+
+    /* Colours */
     --clr-primary-200: hsla(180, 30%, 80%);
     --clr-primary-400: hsla(180, 25%, 45%);
     --clr-primary-500: hsla(180, 30%, 30%);
@@ -8,20 +14,89 @@ main {
     --clr-primary-800: hsla(180, 30%, 10%);
     --clr-white: hsla(0, 0%, 95%);
     --clr-border: hsla(0, 0%, 16%, 0.2);
+
+    /* Font Sizes */
+    --fs-100: 0.8rem;
+    --fs-200: 0.9rem;
+    --fs-300: 0.9rem;
+    --fs-400: 1rem;
+    --fs-500: 1.1rem;
+    --fs-600: 1.25rem;
+    --fs-700: 1.35rem;
+    --fs-800: 1.5rem;
+    --fs-900: 1.75rem;
+
+    /* Icon Sizes */
+    --icon-xl: 2.75rem;
+    --icon-l: 2.25rem;
+    --icon-m: 1.75rem;
+    --icon-s: 1.25rem;
+    --icon-xs: 1rem;
+}
+
+main > div {
+    max-width: 70rem;
+    max-height: 95rem;
+}
+
+@media only screen and (min-width: 35rem) {
+    main {
+        --fs-100: 0.9rem;
+        --fs-200: 1rem;
+        --fs-300: 1.1rem;
+        --fs-500: 1.3rem;
+        --fs-600: 1.5rem;
+
+        --icon-s: 1.4rem;
+        --icon-m: 2rem;
+        --icon-xl: 3rem;
+    }
+}
+
+@media only screen and (min-width: 50rem) {
+    main {
+        --fs-100: 1rem;
+        --fs-200: 1.25rem;
+        --fs-300: 1.5rem;
+        --fs-500: 1.75rem;
+        --fs-600: 2rem;
+
+        --icon-s: 1.75rem;
+        --icon-m: 2.25rem;
+        --icon-xl: 4rem;
+    }
+}
+
+@media only screen and (min-width: 70rem) {
+    main {
+        --fs-100: 1.2rem;
+        --fs-200: 1.5rem;
+        --fs-300: 1.75rem;
+        --fs-500: 2rem;
+        --fs-600: 3rem;
+
+        --icon-s: 2rem;
+        --icon-m: 2.5rem;
+        --icon-xl: 5rem;
+    }
 }
 
 h2 {
-    font-size: 1.5rem;
+    font-size: var(--fs-800);
 }
 
 h3 {
-    font-size: 1.25rem;
+    font-size: var(--fs-600);
 }
 
 h4 {
-    font-size: 1.1rem;
+    font-size: var(--fs-500);
+}
+
+h5 {
+    font-size: var(--fs-200);
 }
 
 p {
-    font-size: 0.9rem;
+    font-size: var(--fs-300);
 }

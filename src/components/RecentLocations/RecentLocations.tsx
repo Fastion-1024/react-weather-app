@@ -37,6 +37,7 @@ const RecentLocations: React.FC<IProps> = ({
                         Your recently searched for places will appear here.
                     </li>
                     {locations.map((location, index) => {
+                        // ! locIndex can be undefined - currently a app breaking bug
                         const locIndex = findDailyInfo(location);
                         const { name, country } = location.city;
                         const { temp, icon } = location.dailyInfo[locIndex];

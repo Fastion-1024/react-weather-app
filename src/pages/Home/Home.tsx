@@ -17,14 +17,14 @@ const Home = () => {
     };
 
     return (
-        <main className="home-container">
+        <div className="home-container">
             <LocationSearch />
             <RecentLocations
                 locations={recentLocations}
                 onLocationClick={handleLocationClick}
                 onRemoveLocation={handleRemoveRecentLocation}
             />
-        </main>
+        </div>
     );
 };
 

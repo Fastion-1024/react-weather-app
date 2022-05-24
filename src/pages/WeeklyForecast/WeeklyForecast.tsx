@@ -4,10 +4,10 @@ import './WeeklyForecast.css';
 
 const WeeklyForecast = () => {
     return (
-        <main className="weekly-forecast-container">
+        <div className="weekly-forecast-container">
             <LocationSearch />
             <TabContainer />
-        </main>
+        </div>
     );
 };
 
