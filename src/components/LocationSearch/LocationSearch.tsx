@@ -33,6 +33,8 @@ const LocationSearch = () => {
 
     const getForecastByCity = (city: City) => {
         fetchWeather(city);
+        setSearchResults([]);
+        setIsFocused(false);
     };
 
     const getForecastByGeolocation = async (position: GeolocationPosition) => {
