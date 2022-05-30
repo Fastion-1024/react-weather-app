@@ -1,108 +1,109 @@
+/* -- CONTAINER -- */
 .daily-forecast-container {
+    width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
     text-transform: capitalize;
-    padding: 0.5em;
-    gap: 2em;
     color: var(--clr-primary-800);
 }
 
+/* -- OVERVIEW -- */
 .forecast-overview {
-    margin-top: 1em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: 0.5em;
+    font-size: var(--fs-600);
+    scroll-snap-align: center;
 }
 
 .forecast-overview-footer {
-    display: flex;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    place-items: center;
     gap: 1em;
     color: var(--clr-white);
     background-color: var(--clr-primary-600);
     padding: 0.5em 1em;
-    text-align: center;
     border-radius: 1em;
-    margin: 1em 0;
+    font-size: var(--fs-500);
 }
 
 .footer-item p {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: var(--fs-400);
 }
 
 .footer-item .icon {
     font-size: var(--icon-s);
 }
 
+/* -- DETAILS -- */
 .forecast-details {
+    height: 100%;
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(10.65em, 1fr));
-    gap: 1em;
+    place-content: space-evenly;
+    font-size: var(--fs-500);
+    scroll-snap-align: center;
 }
 
 .forecast-details-item {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: auto 1fr;
     align-items: center;
-    font-weight: 400;
+    column-gap: 1em;
 }
 
 .forecast-details-item .icon {
-    font-size: var(--icon-xl);
+    font-size: var(--icon-l);
 }
 
-.forecast-details-item div {
-    margin-left: 1em;
-}
-
-/* Media Queries */
 @media only screen and (min-width: 35rem) {
-    .daily-forecast-container {
-        gap: 2em;
-    }
-
-    .forecast-overview {
-        margin-top: 2.5em;
-        gap: 0.5em;
-    }
-
     .forecast-details {
         grid-template-columns: repeat(2, 1fr);
+        place-items: center;
     }
 }
 
 @media only screen and (min-width: 50rem) {
-    .daily-forecast-container {
-        padding: 0.75em;
-        gap: 4em;
-    }
-
     .forecast-overview {
-        margin-top: 4em;
+        row-gap: 1.5em;
     }
 
-    .forecast-details {
-        column-gap: 2.5em;
-        row-gap: 1.5em;
+    .forecast-overview img {
+        transform: scale(1.2);
     }
 }
 
-@media only screen and (min-width: 70rem) {
+@media only screen and (min-width: 50rem) and (orientation: portrait) {
     .daily-forecast-container {
-        padding: 1em;
-        gap: 6em;
-    }
-
-    .forecast-overview {
-        margin-top: 6em;
-        gap: 1em;
+        grid-auto-flow: row;
+        grid-template-rows: 3fr 2fr;
     }
 
     .forecast-details {
-        row-gap: 2.5em;
-        grid-template-columns: repeat(3, 1fr);
+        place-content: start;
+        row-gap: 2em;
+    }
+}
+
+@media only screen and (min-width: 50rem) and (orientation: landscape) {
+    .daily-forecast-container {
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
+    }
+
+    .forecast-details-item {
+        width: 100%;
     }
 }

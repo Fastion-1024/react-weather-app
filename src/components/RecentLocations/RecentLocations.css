@@ -1,31 +1,28 @@
 .recent-locations-container {
-    margin: 0 0.5em;
-    color: var(--clr-primary-800);
+    padding: 1em;
 }
 
-.recent-locations-card-container {
-    width: 100%;
+.recent-locations-header {
+    color: var(--clr-primary-800);
+    font-size: var(--fs-700);
+    text-align: center;
 }
 
 .recent-locations-list {
-    padding-left: 0;
+    padding: 0;
+    display: grid;
+    grid-auto-rows: 1fr;
 }
 
-@media only screen and (min-width: 35rem) {
-    .recent-locations-container {
-        margin: 0 1em;
-    }
-
+@media only screen and (min-width: 50rem) {
     .recent-locations-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(16em, 1fr));
-        grid-auto-rows: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 1em;
     }
 }
 
-@media only screen and (min-width: 35rem) {
+@media only screen and (min-width: 70rem) {
     .recent-locations-list {
-        grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
+        grid-template-columns: repeat(3, 1fr);
     }
 }

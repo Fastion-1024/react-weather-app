@@ -1,12 +1,7 @@
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: var(--clr-primary-200);
-
+:root {
     /* Colours */
     --clr-primary-200: hsla(180, 30%, 80%);
+    --clr-primary-300: hsla(180, 25%, 70%);
     --clr-primary-400: hsla(180, 25%, 45%);
     --clr-primary-500: hsla(180, 30%, 30%);
     --clr-primary-600: hsla(180, 30%, 25%);
@@ -16,87 +11,95 @@ main {
     --clr-border: hsla(0, 0%, 16%, 0.2);
 
     /* Font Sizes */
-    --fs-100: 0.8rem;
-    --fs-200: 0.9rem;
+    --fs-100: 0.7rem;
+    --fs-200: 0.8rem;
     --fs-300: 0.9rem;
     --fs-400: 1rem;
     --fs-500: 1.1rem;
-    --fs-600: 1.25rem;
-    --fs-700: 1.35rem;
+    --fs-600: 1.2rem;
+    --fs-700: 1.3rem;
     --fs-800: 1.5rem;
     --fs-900: 1.75rem;
 
     /* Icon Sizes */
-    --icon-xl: 2.75rem;
-    --icon-l: 2.25rem;
-    --icon-m: 1.75rem;
-    --icon-s: 1.25rem;
     --icon-xs: 1rem;
-}
-
-main > div {
-    max-width: 70rem;
-    max-height: 95rem;
+    --icon-s: 1.25rem;
+    --icon-m: 1.75rem;
+    --icon-l: 2.25rem;
+    --icon-xl: 2.75rem;
 }
 
 @media only screen and (min-width: 35rem) {
-    main {
-        --fs-100: 0.9rem;
-        --fs-200: 1rem;
-        --fs-300: 1.1rem;
-        --fs-500: 1.3rem;
-        --fs-600: 1.5rem;
+    :root {
+        /* Font Sizes */
+        --fs-100: 0.8rem;
+        --fs-200: 0.9rem;
+        --fs-300: 1rem;
+        --fs-400: 1.1rem;
+        --fs-500: 1.2rem;
+        --fs-600: 1.3rem;
+        --fs-700: 1.4rem;
+        --fs-800: 1.6rem;
+        --fs-900: 1.85rem;
 
-        --icon-s: 1.4rem;
-        --icon-m: 2rem;
-        --icon-xl: 3rem;
+        /* Icon Sizes */
+        --icon-s: 1.35rem;
+        --icon-m: 1.85rem;
     }
 }
 
 @media only screen and (min-width: 50rem) {
-    main {
-        --fs-100: 1rem;
-        --fs-200: 1.25rem;
-        --fs-300: 1.5rem;
-        --fs-500: 1.75rem;
-        --fs-600: 2rem;
+    :root {
+        /* Font Sizes */
+        --fs-100: 0.9rem;
+        --fs-200: 1rem;
+        --fs-300: 1.1rem;
+        --fs-400: 1.2rem;
+        --fs-500: 1.3rem;
+        --fs-600: 1.4rem;
+        --fs-700: 1.5rem;
+        --fs-800: 1.75rem;
+        --fs-900: 2rem;
 
-        --icon-s: 1.75rem;
-        --icon-m: 2.25rem;
-        --icon-xl: 4rem;
+        /* Icon Sizes */
+        --icon-s: 1.5rem;
+        --icon-m: 2rem;
     }
 }
 
 @media only screen and (min-width: 70rem) {
-    main {
-        --fs-100: 1.2rem;
-        --fs-200: 1.5rem;
-        --fs-300: 1.75rem;
-        --fs-500: 2rem;
-        --fs-600: 3rem;
+    :root {
+        /* Font Sizes */
+        --fs-100: 1rem;
+        --fs-200: 1.2rem;
+        --fs-300: 1.3rem;
+        --fs-400: 1.3rem;
+        --fs-500: 1.4rem;
+        --fs-600: 1.5rem;
+        --fs-700: 1.6rem;
+        --fs-800: 1.85rem;
+        --fs-900: 2.1rem;
 
-        --icon-s: 2rem;
-        --icon-m: 2.5rem;
-        --icon-xl: 5rem;
+        /* Icon Sizes */
+        --icon-s: 1.65rem;
+        --icon-m: 2.15rem;
     }
 }
 
-h2 {
-    font-size: var(--fs-800);
+main {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background-color: var(--clr-primary-200);
 }
 
-h3 {
-    font-size: var(--fs-600);
+main > div {
+    max-width: 70rem;
+    max-height: 90rem;
 }
 
-h4 {
-    font-size: var(--fs-500);
-}
-
-h5 {
-    font-size: var(--fs-200);
-}
-
-p {
-    font-size: var(--fs-300);
+@media only screen and (min-width: 70rem) and (orientation: landscape) {
+    main > div {
+        max-height: 60rem;
+    }
 }

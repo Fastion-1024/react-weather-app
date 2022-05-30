@@ -17,7 +17,7 @@ const TabHeaders: React.FC<IProps> = ({ weeklyForecast, onTabHeaderClick }) => {
 
     return (
         <section className="tab-headers-container">
-            <ul className="tab-headers-list">
+            <ul className="tab-headers-list" role="list">
                 {weeklyForecast?.map((forecast, index) => (
                     <TabHeader
                         key={index}

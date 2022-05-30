@@ -1,25 +1,28 @@
-/*  Location Search */
+/* -- CONTAINER -- */
 .location-search {
     position: relative;
-    margin: 1em 0.5em;
+    margin: 1em;
 }
 
-/* Search Bar */
+/* -- SEARCH BAR -- */
 .search-bar {
-    display: flex;
-    align-items: center;
-    padding: 0.25em 0.5em;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    place-content: center;
     color: var(--clr-primary-800);
-    border: 1px solid var(--clr-border);
     background-color: var(--clr-white);
 }
 
-.search-bar input {
-    flex-grow: 1;
-    font-size: var(--fs-500);
+.search-bar input,
+.search-bar button {
     border: none;
+    background: none;
     color: inherit;
-    background-color: inherit;
+    padding: 0.25em 0.5em;
+}
+
+.search-bar input {
+    font-size: var(--fs-500);
 }
 
 .search-bar input:focus-within {
@@ -27,28 +30,35 @@
 }
 
 .search-bar button {
-    cursor: pointer;
-    border: none;
-    background: none;
-    display: flex;
-    align-items: center;
+    display: grid;
+    place-content: center;
     font-size: var(--icon-m);
-    color: inherit;
+    padding: 0em 0.25em;
+    cursor: pointer;
 }
 
-/* Search Results */
+/* -- SEARCH RESULTS -- */
 .search-results-box {
     position: absolute;
     top: calc(100% + 0.5em);
-    left: 0;
     width: 100%;
-    background-color: var(--clr-primary-200);
-    box-shadow: 4px 4px 8px 2px hsla(0, 0%, 16%, 0.75);
     z-index: 10;
+    background-color: var(--clr-primary-300);
+}
+
+.search-results-box button {
+    width: 100%;
+    padding: 0.5em 0.25em;
+    cursor: pointer;
+    border: none;
+    color: var(--clr-white);
+    background-color: var(--clr-primary-600);
+    font-size: var(--fs-300);
 }
 
 .suggested-places-container {
-    padding: 1em;
+    padding: 0.5em 1em;
+    font-size: var(--fs-600);
     color: var(--clr-primary-800);
 }
 
@@ -56,48 +66,14 @@
     color: inherit;
 }
 
-.suggested-places-header {
-    font-size: 1.2rem;
-    font-size: var(--fs-500);
-    font-weight: 600;
-}
-
 .suggested-results {
     padding: 0;
-    margin: 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.25em;
+    font-size: var(--fs-400);
 }
 
 .suggested-results li {
-    padding: 0.25em;
     cursor: pointer;
-    font-size: var(--fs-200);
-}
-
-.search-results-box button {
-    width: 100%;
-    padding: 0.5em 0.25em;
-    background: none;
-    border: none;
-    background-color: var(--clr-primary-600);
-    color: var(--clr-white);
-    font-size: var(--fs-200);
-    cursor: pointer;
-}
-
-@media only screen and (min-width: 35rem) {
-    .location-search {
-        margin: 1.25em 0.75em;
-    }
-}
-
-@media only screen and (min-width: 50rem) {
-    .location-search {
-        margin: 1.5em 1em;
-    }
-}
-
-@media only screen and (min-width: 70rem) {
-    .location-search {
-        margin: 1.5em 1em;
-    }
 }

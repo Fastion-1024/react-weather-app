@@ -1,16 +1,6 @@
 .weekly-forecast-container {
     display: grid;
-    grid-template-areas: 'search' 'tabs';
     grid-template-rows: auto 1fr;
-    grid-template-columns: 1fr;
     height: 100%;
     width: 100%;
-}
-
-.weekly-forecast-container .location-search {
-    grid-area: search;
-}
-
-.weekly-forecast-container .tab-container {
-    grid-area: tabs;
 }

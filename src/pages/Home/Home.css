@@ -1,16 +1,6 @@
 .home-container {
     display: grid;
-    grid-template-areas: 'search' 'recent';
     grid-template-rows: auto 1fr;
-    grid-template-columns: 1fr;
     height: 100%;
     width: 100%;
-}
-
-.home-container .location-search {
-    grid-area: search;
-}
-
-.home-container .recent-locations-container {
-    grid-area: recent;
 }

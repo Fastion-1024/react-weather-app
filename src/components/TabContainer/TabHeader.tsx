@@ -34,7 +34,7 @@ const TabHeader: React.FC<IProps> = ({
             ref={headerRef}
             onClick={handleClick}
         >
-            <h5>
+            <h4 className="date">
                 <time
                     dateTime={moment
                         .unix(forecast.time.current)
@@ -42,16 +42,11 @@ const TabHeader: React.FC<IProps> = ({
                 >
                     {moment.unix(forecast.time.current).format('ddd D MMM')}
                 </time>
-            </h5>
-            <div>
-                <img className="weather-icon" src={forecast.weather.icon} />
-                <span>
-                    {getTempWithSymbol(
-                        forecast.temp.forecast,
-                        TempUnit.Celcius
-                    )}
-                </span>
-            </div>
+            </h4>
+            <p className="temp">
+                {getTempWithSymbol(forecast.temp.forecast, TempUnit.Celcius)}
+            </p>
+            <img className="weather-icon" src={forecast.weather.icon} />
         </li>
     );
 };
