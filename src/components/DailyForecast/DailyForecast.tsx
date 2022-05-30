@@ -1,5 +1,5 @@
 import moment from 'moment';
-import React from 'react';
+import React, { ReactHTMLElement, useEffect, useRef } from 'react';
 import { BsSunriseFill } from 'react-icons/bs';
 import {
     WiCloudy,
@@ -18,8 +18,23 @@ interface IProps {
     dailyForecast: Forecast;
 }
 const DailyForecast: React.FC<IProps> = ({ dailyForecast }) => {
+    const scrollerRef = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    const handleResize = () => {
+        if (scrollerRef.current) {
+            scrollerRef.current.scrollBy(0, 0);
+        }
+    };
+
     return (
-        <div className="daily-forecast-container">
+        <div className="daily-forecast-container" ref={scrollerRef}>
             <div className="forecast-overview">
                 <h3>{dailyForecast.city.name}</h3>
                 <img src={dailyForecast.weather.icon} />
