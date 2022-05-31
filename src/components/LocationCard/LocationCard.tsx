@@ -26,7 +26,7 @@ const LocationCard: React.FC<IProps> = ({
             <p className="city">
                 <strong>{cityName}</strong> {country}
             </p>
-            <p className="temp">{temp}</p>
+            <p className="temp">{temp ? temp : 'Forecast out of date'}</p>
             <img src={icon} className="icon" />
 
             <button onClick={handleButtonClick}>

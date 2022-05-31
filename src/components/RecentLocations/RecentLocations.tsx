@@ -20,9 +20,11 @@ const RecentLocations: React.FC<IProps> = ({
     const findDailyInfo = (location: RecentLocation) => {
         const now = moment().utc();
 
-        return location.dailyInfo.findIndex((loc) =>
+        const index = location.dailyInfo.findIndex((loc) =>
             moment(now).isSame(moment.unix(loc.time), 'day')
         );
+
+        return index >= 0 ? index : undefined;
     };
 
     return (
@@ -37,10 +39,19 @@ const RecentLocations: React.FC<IProps> = ({
                         Your recently searched for places will appear here.
                     </li>
                     {locations.map((location, index) => {
-                        // ! locIndex can be undefined - currently a app breaking bug
                         const locIndex = findDailyInfo(location);
                         const { name, country } = location.city;
-                        const { temp, icon } = location.dailyInfo[locIndex];
+
+                        const temp = locIndex
+                            ? getTempWithSymbol(
+                                  location.dailyInfo[locIndex].temp,
+                                  TempUnit.Celcius
+                              )
+                            : undefined;
+
+                        const icon = locIndex
+                            ? location.dailyInfo[locIndex].icon
+                            : undefined;
 
                         return (
                             <li
@@ -51,10 +62,7 @@ const RecentLocations: React.FC<IProps> = ({
                                 <LocationCard
                                     cityName={name}
                                     country={country}
-                                    temp={getTempWithSymbol(
-                                        temp,
-                                        TempUnit.Celcius
-                                    )}
+                                    temp={temp}
                                     icon={icon}
                                     onDelete={() => onRemoveLocation(location)}
                                 />
