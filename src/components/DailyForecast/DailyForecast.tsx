@@ -1,5 +1,5 @@
 import moment from 'moment';
-import React, { ReactHTMLElement, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { BsSunriseFill } from 'react-icons/bs';
 import {
     WiCloudy,
@@ -37,7 +37,7 @@ const DailyForecast: React.FC<IProps> = ({ dailyForecast }) => {
         <div className="daily-forecast-container" ref={scrollerRef}>
             <div className="forecast-overview">
                 <h3>{dailyForecast.city.name}</h3>
-                <img src={dailyForecast.weather.icon} />
+                <img src={dailyForecast.weather.icon} alt="" />
                 <h3>{dailyForecast.weather.description}</h3>
                 <div className="forecast-overview-footer">
                     <div className="footer-item">

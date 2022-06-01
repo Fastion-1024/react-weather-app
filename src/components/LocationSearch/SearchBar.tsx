@@ -12,7 +12,7 @@ const SearchBar: React.FC<IProps> = ({ onSubmit, onReset }) => {
 
     useEffect(() => {
         !input && onReset?.();
-    }, [input]);
+    }, [input, onReset]);
 
     return (
         <form

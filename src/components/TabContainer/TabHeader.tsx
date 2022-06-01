@@ -46,7 +46,11 @@ const TabHeader: React.FC<IProps> = ({
             <p className="temp">
                 {getTempWithSymbol(forecast.temp.forecast, TempUnit.Celcius)}
             </p>
-            <img className="weather-icon" src={forecast.weather.icon} />
+            <img
+                className="weather-icon"
+                src={forecast.weather.icon}
+                alt={forecast.weather.description}
+            />
         </li>
     );
 };

@@ -34,7 +34,7 @@ const SearchResults: React.FC<IProps> = ({
                     Suggested Places
                 </span>
                 <hr />
-                <ul className="suggested-results" role="list">
+                <ul className="suggested-results">
                     {results.map((city, index) => {
                         return (
                             <li

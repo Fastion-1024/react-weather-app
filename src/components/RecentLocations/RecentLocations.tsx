@@ -29,7 +29,7 @@ const RecentLocations: React.FC<IProps> = ({
         <div className="recent-locations-container">
             <h3 className="recent-locations-header">Your Recent Places</h3>
             <div className="recent-locations-card-container">
-                <ul className="recent-locations-list" role="list">
+                <ul className="recent-locations-list">
                     <li
                         className="no-recent-place-card"
                         hidden={locations.length !== 0}
