@@ -20,11 +20,9 @@ const RecentLocations: React.FC<IProps> = ({
     const findDailyInfo = (location: RecentLocation) => {
         const now = moment().utc();
 
-        const index = location.dailyInfo.findIndex((loc) =>
+        return location.dailyInfo.findIndex((loc) =>
             moment(now).isSame(moment.unix(loc.time), 'day')
         );
-
-        return index >= 0 ? index : undefined;
     };
 
     return (
@@ -42,16 +40,18 @@ const RecentLocations: React.FC<IProps> = ({
                         const locIndex = findDailyInfo(location);
                         const { name, country } = location.city;
 
-                        const temp = locIndex
-                            ? getTempWithSymbol(
-                                  location.dailyInfo[locIndex].temp,
-                                  TempUnit.Celcius
-                              )
-                            : undefined;
+                        const temp =
+                            locIndex >= 0
+                                ? getTempWithSymbol(
+                                      location.dailyInfo[locIndex].temp,
+                                      TempUnit.Celcius
+                                  )
+                                : undefined;
 
-                        const icon = locIndex
-                            ? location.dailyInfo[locIndex].icon
-                            : undefined;
+                        const icon =
+                            locIndex >= 0
+                                ? location.dailyInfo[locIndex].icon
+                                : undefined;
 
                         return (
                             <li
